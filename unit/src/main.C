@@ -24,7 +24,7 @@
 
 #include "Factory.h"
 #include "AppFactory.h"
-#include "StorkApp.h"
+#include "StzApp.h"
 
 #include <fstream>
 #include <string>
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 {
   MooseInit init(argc, argv);
 
-  registerApp(StorkApp);
+  registerApp(StzApp);
 
   CppUnit::Test *suite = CppUnit::TestFactoryRegistry::getRegistry().makeTest();
 
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
     // Note: upon calling setOutputter, any previous outputter is
     // destroyed. The TextTestRunner assumes ownership of the outputter, so you
     // don't have to worry about deleting it.
-    runner.setOutputter ( new CppUnit::CompilerOutputter( &runner.result(), std::cerr ) );
+    runner.setOutputter ( new CppUnit::CompilerOutputter( &runner.result(), Moose::err ) );
   }
 
   bool wasSucessful = runner.run(/*testPath=*/"",
