@@ -28,7 +28,6 @@
 
 
 // Contacts
-#include "stzMechanicalContactConstraint.h"
 //functions
 #include "stzExampleFunction.h"
 #include "stzshearExampleFunction.h"
@@ -197,7 +196,6 @@ registerKernel(stzMaskedBodyForce1D);
 
 
   // Contact
-  registerKernel(stzMechanicalContactConstraint);
 
     //Material
   registerMaterial(stzFiniteStrainHyperElasticViscoPlastic);
