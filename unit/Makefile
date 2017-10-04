@@ -31,19 +31,19 @@ ADDITIONAL_LIBS 	:= -L$(CPPUNIT_DIR)/lib -lcppunit
 
 # dep apps
 APPLICATION_DIR    := $(CURRENT_DIR)/..
-APPLICATION_NAME   := stork
+APPLICATION_NAME   := stz
 include            $(FRAMEWORK_DIR)/app.mk
 
 APPLICATION_DIR    := $(CURRENT_DIR)
-APPLICATION_NAME   := stork-unit
+APPLICATION_NAME   := stz-unit
 BUILD_EXEC         := yes
 DEP_APPS    ?= $(shell $(FRAMEWORK_DIR)/scripts/find_dep_apps.py $(APPLICATION_NAME))
 include $(FRAMEWORK_DIR)/app.mk
 
-# Find all the STORK unit test source files and include their dependencies.
-stork-unit_srcfiles := $(shell find $(CURRENT_DIR) -name "*.C")
-stork-unit_deps := $(patsubst %.C, %.$(obj-suffix).d, $(stork-unit_srcfiles))
--include $(stork-unit_deps)
+# Find all the STZ unit test source files and include their dependencies.
+stz-unit_srcfiles := $(shell find $(CURRENT_DIR) -name "*.C")
+stz-unit_deps := $(patsubst %.C, %.$(obj-suffix).d, $(stz-unit_srcfiles))
+-include $(stz-unit_deps)
 
 ###############################################################################
 # Additional special case targets should be added here
